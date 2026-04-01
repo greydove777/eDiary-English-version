@@ -1,0 +1,15 @@
+{
+  "name": "Headache Diary",
+  "short_name": "Headache",
+  "description": "Headache symptom tracker based on Taiwan Headache Society guidelines",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#d2eaf8",
+  "theme_color": "#2a82aa",
+  "orientation": "portrait",
+  "lang": "en",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
