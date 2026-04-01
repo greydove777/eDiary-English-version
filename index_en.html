@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <meta name="theme-color" content="#2a82aa"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+  <meta name="apple-mobile-web-app-title" content="Headache Diary"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+  <link rel="apple-touch-icon-precomposed" href="data:image/png;base64,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"/>
+  <title>Headache Diary</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    html,body{height:100%;background:#d2eaf8;overscroll-behavior:none;font-family:'Microsoft JhengHei','PingFang TC','Noto Sans TC',sans-serif}
+    #root{min-height:100vh}
+    input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(74,138,176,0.2);outline:none}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#4a9abf;cursor:pointer;box-shadow:0 2px 6px rgba(42,130,170,0.4)}
+    input,select,textarea{outline:none;font-family:inherit}
+    select{-webkit-appearance:none}
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-thumb{background:rgba(74,138,176,0.3);border-radius:2px}
+    .btn{cursor:pointer;border:none;font-family:inherit}
+    /* App */
+    .app-root{min-height:100vh;background:linear-gradient(160deg,#e8f5fb,#d2eaf8,#bcdff5);color:#1a3a52;display:flex;flex-direction:column;align-items:center}
+    .app-header{width:100%;max-width:520px;padding:16px 20px 0;display:flex;align-items:center;justify-content:space-between}
+    .app-main{width:100%;max-width:520px;padding:16px 20px 32px;flex:1}
+    .card{background:rgba(255,255,255,0.82);border:1px solid rgba(74,154,191,0.18);border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 2px 14px rgba(74,154,191,0.08)}
+    .nav-btn{background:transparent;border:none;color:#7aaac8;font-size:13px;padding:6px 12px;cursor:pointer;border-radius:6px;font-family:inherit}
+    .nav-btn.active{background:rgba(74,154,191,0.16);color:#2a82aa}
+    .lbl{font-size:11px;letter-spacing:.08em;color:#7aaac8;margin-bottom:6px;display:block;text-transform:uppercase}
+    .inp{background:rgba(255,255,255,0.85);border:1px solid rgba(74,138,176,0.3);border-radius:8px;color:#1a3a52;padding:9px 12px;font-size:15px;box-sizing:border-box}
+    .pill{display:inline-block;padding:7px 14px;margin:3px;border-radius:20px;border:1px solid rgba(74,138,176,0.25);background:rgba(255,255,255,0.7);color:#5a8aaa;font-size:13px;cursor:pointer}
+    .pill.active{border-color:#4a9abf;background:rgba(74,154,191,0.2);color:#1a5a7a}
+    .primary-btn{background:linear-gradient(135deg,#4a9abf,#2a82aa);border:none;border-radius:10px;color:#fff;padding:12px 24px;font-size:15px;cursor:pointer;box-shadow:0 3px 12px rgba(42,130,170,0.22);font-family:inherit}
+    .back-btn{background:rgba(255,255,255,0.7);border:1px solid rgba(74,138,176,0.25);border-radius:10px;color:#4a7a9a;padding:10px 18px;font-size:14px;cursor:pointer;font-family:inherit}
+    .pain-badge{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;flex-shrink:0}
+    .footer-note{padding:12px 20px;font-size:11px;color:#7aaac8;text-align:center}
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const SYMPTOMS = ["Nausea/Vomiting","Light sensitivity","Sound sensitivity","Pulsating pain","Unilateral","Aggravated by activity"];
+const MEDICATIONS = ["None","Ibuprofen","Paracetamol/Acetaminophen","Aspirin","Sumatriptan","Rizatriptan","Naproxen","Other"];
+const DIZ_LEVELS = ["Mild","Moderate","Severe"];
+
+const todayInfo=()=>{const d=new Date();return{year:d.getFullYear(),month:d.getMonth()+1,day:d.getDate()}};
+const daysInMonth=(y,m)=>new Date(y,m,0).getDate();
+const monthKey=(y,m)=>`${y}-${String(m).padStart(2,'0')}`;
+const painColor=v=>{const n=parseInt(v);if(!n)return'#7aaac8';if(n<=3)return'#2a9a6a';if(n<=6)return'#e09020';return'#d04040'};
+const painBg=v=>{const n=parseInt(v);if(!n)return'rgba(74,138,176,0.08)';if(n<=3)return'rgba(42,154,106,0.12)';if(n<=6)return'rgba(224,144,32,0.12)';return'rgba(208,64,64,0.12)'};
+
+// ── 狀態 ──
+let state={
+  view:'calendar',
+  year:todayInfo().year,
+  month:todayInfo().month,
+  selectedDay:todayInfo().day,
+  monthData:{},
+  nextVisit:'',
+};
+
+const defEntry=()=>({morning:'',afternoon:'',evening:'',symptoms:[],duration:'',medication:'None',medicationEffect:'',stress:'',exercise:'',dizzy:false,dizzyLevel:''});
+const getEntry=day=>state.monthData[day]||defEntry();
+const mKey=()=>monthKey(state.year,state.month);
+
+function loadMonth(){
+  try{
+    const d=localStorage.getItem(`hd-data-${mKey()}`);
+    state.monthData=d?JSON.parse(d):{};
+    const nv=localStorage.getItem(`hd-nv-${mKey()}`);
+    state.nextVisit=nv||'';
+  }catch{state.monthData={};state.nextVisit='';}
+}
+
+function saveDay(day,data){
+  state.monthData={...state.monthData,[day]:data};
+  try{localStorage.setItem(`hd-data-${mKey()}`,JSON.stringify(state.monthData))}catch{}
+}
+
+function saveNextVisit(v){
+  state.nextVisit=v;
+  try{localStorage.setItem(`hd-nv-${mKey()}`,v)}catch{}
+}
+
+// Load month data
+loadMonth();
+
+// ── render ──
+function render(){
+  const root=document.getElementById('root');
+  root.innerHTML='';
+  renderApp(root);
+}
+
+// ── App ──
+function renderApp(root){
+  const wrap=el('div',{className:'app-root'});
+
+  // Header
+  const hdr=el('div',{className:'app-header'});
+  const logo=el('div',{style:'display:flex;align-items:center;gap:8px'});
+  logo.innerHTML='<span style="font-size:14px;color:#2a82aa;font-weight:bold">🧠 Headache Diary</span>';
+  hdr.appendChild(logo);
+
+  const nav=el('div',{style:'display:flex;gap:4px;align-items:center'});
+  [['calendar','Calendar'],['stats','Stats']].forEach(([v,l])=>{
+    const b=el('button',{className:'nav-btn btn'+(state.view===v?' active':'')});
+    b.textContent=l;b.onclick=()=>{state.view=v;render();};
+    nav.appendChild(b);
+  });
+  const pdfBtn=el('button',{className:'nav-btn btn',style:'background:rgba(42,150,100,0.1);color:#2a8a5a'});
+  pdfBtn.textContent='🖨️';pdfBtn.onclick=exportPDF;
+  nav.appendChild(pdfBtn);
+  hdr.appendChild(nav);
+  wrap.appendChild(hdr);
+
+  const main=el('div',{className:'app-main'});
+  if(state.view==='calendar')renderCalendar(main);
+  else if(state.view==='entry')renderEntry(main);
+  else if(state.view==='stats')renderStats(main);
+  wrap.appendChild(main);
+
+  const footer=el('div',{className:'footer-note'});
+  footer.innerHTML='Based on Taiwan Headache Society guidelines · For personal use only, not medical advice<br>© Dr. Liao Yen-Hui';
+  wrap.appendChild(footer);
+  root.appendChild(wrap);
+}
+
+// ── 月曆 ──
+function renderCalendar(main){
+  const t=todayInfo();
+  const totalDays=daysInMonth(state.year,state.month);
+  const firstDay=new Date(state.year,state.month-1,1).getDay();
+
+  // 計算統計
+  const stats=calcStats();
+
+  // Calendar card
+  const calCard=el('div',{className:'card'});
+
+  // Month navigation
+  const monthNav=el('div',{style:'display:flex;align-items:center;justify-content:space-between;margin-bottom:12px'});
+  const prevBtn=el('button',{className:'back-btn btn',style:'padding:6px 14px;font-size:16px'});prevBtn.textContent='‹';
+  prevBtn.onclick=()=>{if(state.month===1){state.year--;state.month=12;}else state.month--;state.selectedDay=1;loadMonth();render();};
+  monthNav.appendChild(prevBtn);
+
+  const monthTitle=el('div',{style:'text-align:center'});
+  monthTitle.innerHTML=`<div style="font-size:18px;font-weight:bold;color:#2a82aa">${state.year} / ${state.month}</div>`;
+  const nvRow=el('div',{style:'font-size:11px;color:#7aaac8;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:6px'});
+  nvRow.appendChild(document.createTextNode('Next visit: '));
+  const nvInp=el('input',{type:'date',className:'inp',style:'display:inline;width:auto;padding:2px 8px;font-size:12px'});
+  nvInp.value=state.nextVisit;
+  nvInp.onchange=e=>{saveNextVisit(e.target.value);};
+  nvRow.appendChild(nvInp);
+  monthTitle.appendChild(nvRow);
+  monthNav.appendChild(monthTitle);
+
+  const nextBtn=el('button',{className:'back-btn btn',style:'padding:6px 14px;font-size:16px'});nextBtn.textContent='›';
+  nextBtn.onclick=()=>{if(state.month===12){state.year++;state.month=1;}else state.month++;state.selectedDay=1;loadMonth();render();};
+  monthNav.appendChild(nextBtn);
+  calCard.appendChild(monthNav);
+
+  // 星期列
+  const weekRow=el('div',{style:'display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px'});
+  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{
+    const c=el('div',{style:'text-align:center;font-size:11px;color:#7aaac8;padding:4px 0'});c.textContent=d;weekRow.appendChild(c);
+  });
+  calCard.appendChild(weekRow);
+
+  // Day cells
+  const grid=el('div',{style:'display:grid;grid-template-columns:repeat(7,1fr);gap:3px'});
+  for(let i=0;i<firstDay;i++) grid.appendChild(el('div'));
+  for(let day=1;day<=totalDays;day++){
+    const e=state.monthData[day]||{};
+    const mp=Math.max(parseInt(e.morning)||0,parseInt(e.afternoon)||0,parseInt(e.evening)||0);
+    const has=e.morning||e.afternoon||e.evening||(e.symptoms&&e.symptoms.length>0);
+    const isToday=day===t.day&&state.month===t.month&&state.year===t.year;
+    const isSel=day===state.selectedDay;
+    let bg=has?(mp<=3?'rgba(42,154,106,0.15)':mp<=6?'rgba(224,144,32,0.15)':'rgba(208,64,64,0.15)'):'rgba(255,255,255,0.6)';
+    let border=isSel?'#2a82aa':has?(mp<=3?'#2a9a6a':mp<=6?'#e09020':'#d04040'):'rgba(74,138,176,0.2)';
+    const cell=el('div',{style:`text-align:center;padding:5px 2px;border-radius:10px;background:${bg};border:2px solid ${border};cursor:pointer`});
+    const dayNum=el('div',{style:`font-size:13px;font-weight:${isToday?'bold':'normal'};color:${isSel?'#2a82aa':'#1a3a52'}`});
+    dayNum.textContent=day;cell.appendChild(dayNum);
+    if(has){const pn=el('div',{style:`font-size:10px;color:${mp<=3?'#2a9a6a':mp<=6?'#e09020':'#d04040'};font-weight:bold`});pn.textContent=mp||'✓';cell.appendChild(pn);}
+    if(e.dizzy){const dz=el('div',{style:'font-size:9px;color:#7a5aaa'});dz.textContent='Diz';cell.appendChild(dz);}
+    cell.onclick=()=>{state.selectedDay=day;state.view='entry';render();};
+    grid.appendChild(cell);
+  }
+  calCard.appendChild(grid);
+
+  // Legend
+  const legend=el('div',{style:'display:flex;gap:10px;margin-top:10px;justify-content:center;flex-wrap:wrap'});
+  [['Mild 1-3','#2a9a6a'],['Moderate 4-6','#e09020'],['Severe 7-10','#d04040'],['Dizziness','#7a5aaa']].forEach(([l,c])=>{
+    const li=el('div',{style:'display:flex;align-items:center;gap:4px;font-size:11px;color:#4a7a9a'});
+    const dot=el('div',{style:`width:10px;height:10px;border-radius:2px;background:${c};opacity:0.7`});
+    li.appendChild(dot);li.appendChild(document.createTextNode(l));legend.appendChild(li);
+  });
+  calCard.appendChild(legend);
+  main.appendChild(calCard);
+
+  // Summary stats
+  const statRow=el('div',{style:'display:flex;gap:8px;margin-bottom:14px'});
+  [{val:stats.headacheDays,label:'Headache Days',color:'#2a82aa'},{val:stats.migraineDays,label:'Migraine Days',color:'#e09020'},{val:stats.medDays,label:'Med. Days',color:'#7a5aaa'},{val:stats.dizzyDays,label:'Dizzy Days',color:'#5a7aaa'}].forEach(({val,label,color})=>{
+    const box=el('div',{style:'flex:1;background:rgba(255,255,255,0.82);border:1px solid rgba(74,154,191,0.18);border-radius:12px;padding:12px 6px;text-align:center'});
+    const v=el('div',{style:`font-size:22px;font-weight:bold;color:${color}`});v.textContent=val;
+    const l=el('div',{style:'font-size:9px;color:#7aaac8;margin-top:3px'});l.textContent=label;
+    box.appendChild(v);box.appendChild(l);statRow.appendChild(box);
+  });
+  main.appendChild(statRow);
+
+  const addBtn=el('button',{className:'primary-btn btn',style:'width:100%'});
+  addBtn.textContent='+ Log Today';
+  addBtn.onclick=()=>{state.selectedDay=t.day;state.view='entry';render();};
+  main.appendChild(addBtn);
+}
+
+// ── 單日填寫 ──
+function renderEntry(main){
+  const e=getEntry(state.selectedDay);
+  const totalDays=daysInMonth(state.year,state.month);
+
+  const hdr=el('div',{style:'display:flex;align-items:center;gap:12px;margin-bottom:16px'});
+  const back=el('button',{className:'back-btn btn'});back.textContent='← Back';
+  back.onclick=()=>{state.view='calendar';render();};
+  hdr.appendChild(back);
+  const info=el('div');
+  info.innerHTML=`<div style="font-size:17px;font-weight:bold;color:#2a82aa">${state.year}/${state.month}/${state.selectedDay}</div><div style="font-size:11px;color:#7aaac8">Fill in today's headache details</div>`;
+  hdr.appendChild(info);
+  main.appendChild(hdr);
+
+  // 疼痛
+  const painCard=el('div',{className:'card'});
+  const painHdr=el('div',{style:'display:flex;justify-content:space-between;align-items:center;margin-bottom:12px'});
+  painHdr.innerHTML='<span style="font-size:15px;font-weight:bold;color:#1a3a52">Headache today?</span><span style="font-size:11px;color:#7aaac8">0=None, 10=Worst</span>';
+  painCard.appendChild(painHdr);
+  [['morning','Morning'],['afternoon','Afternoon'],['evening','Evening']].forEach(([field,label])=>{
+    const row=el('div',{style:'display:flex;align-items:center;gap:10px;margin-bottom:10px'});
+    const lbl=el('div',{style:'width:36px;font-size:13px;color:#4a7a9a;flex-shrink:0'});lbl.textContent=label;
+    const slider=el('input',{type:'range',min:0,max:10,value:parseInt(e[field])||0,style:`flex:1;accent-color:${painColor(e[field])}`});
+    const val=parseInt(e[field])||0;
+    const badge=el('div',{style:`width:28px;height:28px;border-radius:50%;background:${painBg(e[field])};border:2px solid ${val?painColor(e[field]):'rgba(74,138,176,0.2)'};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;color:${painColor(e[field])};flex-shrink:0`});
+    badge.textContent=val;
+    slider.oninput=ev=>{
+      const updated={...getEntry(state.selectedDay),[field]:ev.target.value};
+      saveDay(state.selectedDay,updated);
+      badge.textContent=ev.target.value;
+      badge.style.color=painColor(ev.target.value);
+      badge.style.borderColor=parseInt(ev.target.value)?painColor(ev.target.value):'rgba(74,138,176,0.2)';
+      badge.style.background=painBg(ev.target.value);
+      slider.style.accentColor=painColor(ev.target.value);
+    };
+    row.appendChild(lbl);row.appendChild(slider);row.appendChild(badge);
+    painCard.appendChild(row);
+  });
+  main.appendChild(painCard);
+
+  // Associated Symptoms
+  const symCard=el('div',{className:'card'});
+  const symTitle=el('div',{style:'font-size:15px;font-weight:bold;color:#1a3a52;margin-bottom:10px'});symTitle.textContent='Associated Symptoms';
+  symCard.appendChild(symTitle);
+  const symWrap=el('div');
+  SYMPTOMS.forEach(s=>{
+    const active=(e.symptoms||[]).includes(s);
+    const p=el('button',{className:'pill btn'+(active?' active':'')});
+    p.textContent=s;
+    p.onclick=()=>{
+      const cur=getEntry(state.selectedDay);
+      const list=cur.symptoms||[];
+      const updated={...cur,symptoms:list.includes(s)?list.filter(x=>x!==s):[...list,s]};
+      saveDay(state.selectedDay,updated);
+      p.classList.toggle('active');
+    };
+    symWrap.appendChild(p);
+  });
+  symCard.appendChild(symWrap);
+  main.appendChild(symCard);
+
+  // 持續時間
+  const durCard=el('div',{className:'card'});
+  durCard.innerHTML='<div style="font-size:15px;font-weight:bold;color:#1a3a52;margin-bottom:10px">Duration (hours)</div>';
+  const durInp=el('input',{type:'number',className:'inp',min:0,max:72,step:0.5,placeholder:'例：4',style:'width:100%'});
+  durInp.value=e.duration||'';
+  durInp.oninput=ev=>{saveDay(state.selectedDay,{...getEntry(state.selectedDay),duration:ev.target.value});};
+  durCard.appendChild(durInp);
+  main.appendChild(durCard);
+
+  // 其他
+  const otherCard=el('div',{className:'card'});
+  otherCard.innerHTML='<div style="font-size:15px;font-weight:bold;color:#1a3a52;margin-bottom:14px">Other Records</div>';
+
+  // 藥物
+  const medLbl=el('label',{className:'lbl'});medLbl.textContent='Medication taken';
+  otherCard.appendChild(medLbl);
+  const medWrap=el('div',{style:'margin-bottom:14px'});
+  MEDICATIONS.forEach(m=>{
+    const p=el('button',{className:'pill btn'+(e.medication===m?' active':'')});
+    p.textContent=m;
+    p.onclick=()=>{
+      const updated={...getEntry(state.selectedDay),medication:m};
+      saveDay(state.selectedDay,updated);
+      medWrap.querySelectorAll('.pill').forEach(x=>x.classList.remove('active'));
+      p.classList.add('active');
+      render(); // re-render to show effect buttons
+    };
+    medWrap.appendChild(p);
+  });
+  otherCard.appendChild(medWrap);
+
+  // 藥效
+  if(e.medication&&e.medication!=='未服藥'){
+    const effLbl=el('label',{className:'lbl'});effLbl.textContent='Effectiveness';
+    otherCard.appendChild(effLbl);
+    const effRow=el('div',{style:'display:flex;gap:8px;margin-bottom:14px'});
+    [['Effective','#2a9a6a'],['Partial','#e09020'],['No effect','#d04040']].forEach(([val,col])=>{
+      const active=e.medicationEffect===val;
+      const b=el('button',{className:'btn',style:`flex:1;padding:9px 6px;border-radius:10px;border:1px solid ${active?col:'rgba(74,138,176,0.25)'};background:${active?col+'22':'rgba(255,255,255,0.7)'};color:${active?col:'#5a8aaa'};font-size:13px;cursor:pointer;font-family:inherit`});
+      b.textContent=val;
+      b.onclick=()=>{saveDay(state.selectedDay,{...getEntry(state.selectedDay),medicationEffect:val});render();};
+      effRow.appendChild(b);
+    });
+    otherCard.appendChild(effRow);
+  }
+
+  // 壓力
+  const strLbl=el('label',{className:'lbl'});strLbl.textContent='Stress level (1–10)';
+  otherCard.appendChild(strLbl);
+  const strRow=el('div',{style:'display:flex;align-items:center;gap:10px;margin-bottom:14px'});
+  const strSlider=el('input',{type:'range',min:0,max:10,value:parseInt(e.stress)||0,style:'flex:1;accent-color:#4a9abf'});
+  const strBadge=el('div',{style:'width:32px;height:32px;border-radius:50%;background:rgba(74,154,191,0.12);border:2px solid #4a9abf;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;color:#2a82aa'});
+  strBadge.textContent=parseInt(e.stress)||0;
+  strSlider.oninput=ev=>{saveDay(state.selectedDay,{...getEntry(state.selectedDay),stress:ev.target.value});strBadge.textContent=ev.target.value;};
+  strRow.appendChild(strSlider);strRow.appendChild(strBadge);
+  otherCard.appendChild(strRow);
+
+  // 運動
+  const exLbl=el('label',{className:'lbl'});exLbl.textContent='Exercise';
+  otherCard.appendChild(exLbl);
+  const exInp=el('input',{type:'text',className:'inp',placeholder:'e.g. Jogging 30min, Yoga, None',style:'width:100%'});
+  exInp.value=e.exercise||'';
+  exInp.oninput=ev=>{saveDay(state.selectedDay,{...getEntry(state.selectedDay),exercise:ev.target.value});};
+  otherCard.appendChild(exInp);
+  main.appendChild(otherCard);
+
+  // ── 頭暈欄位 ──
+  const dizCard=el('div',{className:'card',style:`border:1px solid ${e.dizzy?'rgba(122,90,170,0.4)':'rgba(74,154,191,0.18)'};background:${e.dizzy?'rgba(122,90,170,0.06)':'rgba(255,255,255,0.82)'}`});
+  const dizTitle=el('div',{style:'font-size:15px;font-weight:bold;color:#1a3a52;margin-bottom:14px'});dizTitle.textContent='Dizziness?';
+  dizCard.appendChild(dizTitle);
+
+  const ynRow=el('div',{style:'display:flex;gap:12px;margin-bottom:'+(e.dizzy?'14px':'0')});
+  [['Yes',true],['No',false]].forEach(([label,val])=>{
+    const active=e.dizzy===val;
+    const col=val?'#7a5aaa':'#2a9a6a';
+    const b=el('button',{className:'btn',style:`flex:1;padding:12px;border-radius:12px;border:2px solid ${active?col:'rgba(74,138,176,0.25)'};background:${active?(val?'rgba(122,90,170,0.12)':'rgba(42,154,106,0.1)'):'rgba(255,255,255,0.7)'};color:${active?col:'#5a8aaa'};font-size:16px;font-weight:bold;cursor:pointer;font-family:inherit`});
+    b.textContent=label;
+    b.onclick=()=>{
+      const updated={...getEntry(state.selectedDay),dizzy:val};
+      if(!val)updated.dizzyLevel='';
+      saveDay(state.selectedDay,updated);render();
+    };
+    ynRow.appendChild(b);
+  });
+  dizCard.appendChild(ynRow);
+
+  if(e.dizzy){
+    const levLbl=el('label',{className:'lbl',style:'color:#9a7acc'});levLbl.textContent='Severity';
+    dizCard.appendChild(levLbl);
+    const levRow=el('div',{style:'display:flex;gap:8px'});
+    const cols=['#2a9a6a','#e09020','#d04040'];
+    DIZ_LEVELS.forEach((lv,i)=>{
+      const active=e.dizzyLevel===lv;
+      const col=cols[i];
+      const b=el('button',{className:'btn',style:`flex:1;padding:10px 6px;border-radius:10px;border:2px solid ${active?col:'rgba(74,138,176,0.25)'};background:${active?col+'22':'rgba(255,255,255,0.7)'};color:${active?col:'#5a8aaa'};font-size:14px;font-weight:${active?'bold':'normal'};cursor:pointer;font-family:inherit`});
+      b.textContent=lv;
+      b.onclick=()=>{saveDay(state.selectedDay,{...getEntry(state.selectedDay),dizzyLevel:lv});render();};
+      levRow.appendChild(b);
+    });
+    dizCard.appendChild(levRow);
+  }
+  main.appendChild(dizCard);
+
+  // 前後天
+  const navRow=el('div',{style:'display:flex;gap:10px'});
+  const prevDay=el('button',{className:'back-btn btn',style:'flex:1'});
+  prevDay.textContent='‹ Prev';prevDay.disabled=state.selectedDay<=1;
+  prevDay.onclick=()=>{state.selectedDay--;render();};
+  const nextDay=el('button',{className:'primary-btn btn',style:'flex:1'});
+  nextDay.textContent='Next ›';nextDay.disabled=state.selectedDay>=totalDays;
+  nextDay.onclick=()=>{state.selectedDay++;render();};
+  navRow.appendChild(prevDay);navRow.appendChild(nextDay);
+  main.appendChild(navRow);
+}
+
+// ── 統計 ──
+function renderStats(main){
+  const stats=calcStats();
+
+  const hdr=el('div',{style:'display:flex;justify-content:space-between;align-items:center;margin-bottom:16px'});
+  const title=el('div',{style:'font-size:18px;font-weight:bold;color:#2a82aa'});
+  title.textContent=`${state.year} / ${state.month} Stats`;
+  const pdfBtn=el('button',{className:'btn',style:'background:linear-gradient(135deg,#3aaa7a,#2a8a5a);border:none;border-radius:8px;color:#fff;padding:9px 14px;font-size:13px;cursor:pointer;font-family:inherit'});
+  pdfBtn.textContent='🖨️ Export PDF';pdfBtn.onclick=exportPDF;
+  hdr.appendChild(title);hdr.appendChild(pdfBtn);
+  main.appendChild(hdr);
+
+  // 數字
+  const statRow=el('div',{style:'display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap'});
+  [{val:stats.headacheDays,label:'Headache Days',color:'#2a82aa'},{val:stats.migraineDays,label:'Migraine Days',color:'#e09020'},{val:stats.medDays,label:'Med. Days',color:'#7a5aaa'},{val:stats.dizzyDays,label:'Dizzy Days',color:'#5a7aaa'}].forEach(({val,label,color})=>{
+    const box=el('div',{style:'flex:1 1 70px;background:rgba(255,255,255,0.82);border:1px solid rgba(74,154,191,0.18);border-radius:12px;padding:14px 8px;text-align:center'});
+    const v=el('div',{style:`font-size:24px;font-weight:bold;color:${color}`});v.textContent=val;
+    const l=el('div',{style:'font-size:10px;color:#7aaac8;margin-top:3px'});l.textContent=label;
+    box.appendChild(v);box.appendChild(l);statRow.appendChild(box);
+  });
+  main.appendChild(statRow);
+
+  // 症狀
+  if(stats.topSymptoms.length>0){
+    const symCard=el('div',{className:'card'});
+    const st=el('div',{style:'font-size:14px;font-weight:bold;color:#1a3a52;margin-bottom:12px'});st.textContent='常見Associated Symptoms';
+    symCard.appendChild(st);
+    const max=stats.topSymptoms[0][1]||1;
+    stats.topSymptoms.forEach(([s,c])=>{
+      const row=el('div',{style:'margin-bottom:10px'});
+      const top=el('div',{style:'display:flex;justify-content:space-between;margin-bottom:4px'});
+      const sl=el('span',{style:'font-size:13px;color:#1a3a52'});sl.textContent=s;
+      const sc=el('span',{style:'font-size:12px;color:#7aaac8'});sc.textContent=c+' 次';
+      top.appendChild(sl);top.appendChild(sc);
+      const bar=el('div',{style:'height:4px;background:rgba(74,138,176,0.12);border-radius:2px'});
+      const fill=el('div',{style:`height:100%;width:${(c/max)*100}%;background:#4a9abf;border-radius:2px`});
+      bar.appendChild(fill);row.appendChild(top);row.appendChild(bar);symCard.appendChild(row);
+    });
+    main.appendChild(symCard);
+  }
+
+  // 每日明細
+  const entries=Object.entries(state.monthData).filter(([,e])=>e.morning||e.afternoon||e.evening).sort((a,b)=>parseInt(a[0])-parseInt(b[0]));
+  if(entries.length>0){
+    const detCard=el('div',{className:'card'});
+    const dt=el('div',{style:'font-size:14px;font-weight:bold;color:#1a3a52;margin-bottom:12px'});dt.textContent='Daily Records';
+    detCard.appendChild(dt);
+    entries.forEach(([day,e])=>{
+      const mp=Math.max(parseInt(e.morning)||0,parseInt(e.afternoon)||0,parseInt(e.evening)||0);
+      const col=painColor(mp);
+      const row=el('div',{style:'display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(74,138,176,0.08);cursor:pointer'});
+      const badge=el('div',{style:`width:36px;height:36px;border-radius:50%;background:${col}20;border:2px solid ${col};display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;color:${col};flex-shrink:0`});
+      badge.textContent=day;
+      const info=el('div',{style:'flex:1'});
+      const l1=el('div',{style:'font-size:13px;color:#1a3a52'});
+      l1.textContent=`M:${e.morning||0} A:${e.afternoon||0} E:${e.evening||0}${e.duration?' · '+e.duration+'hrs':''}${e.dizzy?' · Dizzy'+(e.dizzyLevel?'('+e.dizzyLevel+')':''):''}`;
+      const l2=el('div',{style:'font-size:11px;color:#7aaac8;margin-top:2px'});
+      l2.textContent=(e.symptoms||[]).slice(0,3).join(', ')||'No symptoms';
+      info.appendChild(l1);info.appendChild(l2);
+      const arr=el('span',{style:'color:#7aaac8'});arr.textContent='›';
+      row.appendChild(badge);row.appendChild(info);row.appendChild(arr);
+      row.onclick=()=>{state.selectedDay=parseInt(day);state.view='entry';render();};
+      detCard.appendChild(row);
+    });
+    main.appendChild(detCard);
+  }
+
+  if(stats.headacheDays===0){
+    const empty=el('div',{className:'card',style:'text-align:center;padding:32px'});
+    empty.innerHTML='<p style="color:#7aaac8;margin:0">No headache records this month.</p>';
+    main.appendChild(empty);
+  }
+}
+
+// ── 統計計算 ──
+function calcStats(){
+  const headacheDays=Object.entries(state.monthData).filter(([,e])=>parseInt(e.morning)>0||parseInt(e.afternoon)>0||parseInt(e.evening)>0).length;
+
+  // 偏頭痛判斷（ICHD標準）
+  // 條件A：中重度疼痛(>=4)、單側頭痛、搏動性疼痛、活動使頭痛加劇 → 4取2
+  // 條件B：噁心或嘔吐、怕光、怕吵 → 3取1
+  // 條件C：持續時間 > 4 小時
+  const isMigraine=e=>{
+    const maxPain=Math.max(parseInt(e.morning)||0,parseInt(e.afternoon)||0,parseInt(e.evening)||0);
+    const sym=e.symptoms||[];
+    const dur=parseFloat(e.duration)||0;
+    const condA=[
+      maxPain>=4,
+      sym.includes('Unilateral'),
+      sym.includes('Pulsating pain'),
+      sym.includes('Aggravated by activity')
+    ].filter(Boolean).length>=2;
+    const condB=sym.includes('Nausea/Vomiting')||sym.includes('Light sensitivity')||sym.includes('Sound sensitivity');
+    const condC=dur>4;
+    return condA&&condB&&condC;
+  };
+  const migraineDays=Object.values(state.monthData).filter(isMigraine).length;
+
+  const medDays=Object.values(state.monthData).filter(e=>e.medication&&e.medication!=='未服藥').length;
+  const dizzyDays=Object.values(state.monthData).filter(e=>e.dizzy).length;
+  const allPains=Object.values(state.monthData).flatMap(e=>[parseInt(e.morning)||0,parseInt(e.afternoon)||0,parseInt(e.evening)||0].filter(v=>v>0));
+  const avgPain=allPains.length?(allPains.reduce((a,b)=>a+b,0)/allPains.length).toFixed(1):'–';
+  const symptomCount={};
+  Object.values(state.monthData).forEach(e=>(e.symptoms||[]).forEach(s=>symptomCount[s]=(symptomCount[s]||0)+1));
+  const topSymptoms=Object.entries(symptomCount).sort((a,b)=>b[1]-a[1]);
+  return{headacheDays,migraineDays,medDays,dizzyDays,allPains,avgPain,topSymptoms};
+}
+
+// ── PDF ──
+function exportPDF(){
+  const totalDays=daysInMonth(state.year,state.month);
+  const stats=calcStats();
+  const rows=Array.from({length:totalDays},(_,i)=>i+1).map(day=>({day,...(state.monthData[day]||defEntry())}));
+  const pc=v=>{const n=parseInt(v);if(!n)return'p0';if(n<=3)return'pl';if(n<=6)return'pm';return'ph'};
+  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
+<title>Headache Diary ${state.year}/${state.month}</title>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Microsoft JhengHei','PingFang TC',sans-serif;font-size:9px;color:#1a3a52}
+@page{size:A4 landscape;margin:6mm 6mm}
+@media print{
+  html,body{width:297mm;height:210mm}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  table{page-break-inside:avoid}
+}
+.hdr{display:flex;justify-content:space-between;margin-bottom:5px;padding-bottom:4px;border-bottom:2px solid #2a82aa}
+.title{font-size:14px;font-weight:bold;color:#2a82aa}.sub{font-size:8px;color:#7aaac8;margin-top:1px}
+.meta{text-align:right;font-size:9px;color:#4a7a9a;line-height:1.6}
+.sum{display:flex;gap:6px;margin-bottom:5px}
+.stat{background:#e8f5fb;border:1px solid #b0d8f0;border-radius:4px;padding:3px 8px;text-align:center;flex:1}
+.sv{font-size:13px;font-weight:bold;color:#2a82aa}.sl{font-size:7px;color:#7aaac8}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{background:#2a82aa;color:#fff;padding:3px 2px;text-align:center;font-size:8px;font-weight:bold;border:1px solid #1a6a8a;white-space:nowrap;overflow:hidden}
+td{padding:2px 2px;text-align:center;border:1px solid #c0d8e8;font-size:8px;vertical-align:middle;white-space:nowrap;overflow:hidden}
+tr:nth-child(even) td{background:#f0f8fd}
+.dc{font-weight:bold;color:#2a82aa;background:#e8f5fb!important;width:20px}
+.p0{color:#aaa}.pl{color:#2a9a6a;font-weight:bold}.pm{color:#e09020;font-weight:bold}.ph{color:#d04040;font-weight:bold}
+.ck{color:#2a82aa}.ft{margin-top:4px;font-size:7px;color:#7aaac8;text-align:center;border-top:1px solid #c0d8e8;padding-top:4px}
+</style></head><body>
+<div class="hdr">
+<div><div class="title">🧠 Headache Diary</div><div class="sub">Based on Taiwan Headache Society guidelines</div></div>
+<div class="meta"><b>${state.year}/${state.month}</b>${state.nextVisit?'<br>Next visit: '+state.nextVisit:''}<br>Printed: ${new Date().toLocaleDateString('en-US')}</div>
+</div>
+<div class="sum">
+<div class="stat"><div class="sv">${stats.headacheDays}</div><div class="sl">Headache Days</div></div>
+<div class="stat"><div class="sv">${stats.migraineDays}</div><div class="sl">Migraine Days</div></div>
+<div class="stat"><div class="sv">${stats.avgPain}</div><div class="sl">Avg Pain</div></div>
+<div class="stat"><div class="sv">${stats.medDays}</div><div class="sl">Med. Days</div></div>
+<div class="stat"><div class="sv">${stats.dizzyDays}</div><div class="sl">Dizzy Days</div></div>
+<div class="stat"><div class="sv">${stats.allPains.length?Math.max(...stats.allPains):'–'}</div><div class="sl">Peak Pain</div></div>
+</div>
+<table><thead><tr><th>Day</th><th>Morning</th><th>Afternoon</th><th>Evening</th><th>Nausea</th><th>Light</th><th>Sound</th><th>Pulsating</th><th>Unilateral</th><th>Activity</th><th>Dur(h)</th><th>Medication</th><th>Effect</th><th>Dizziness</th><th>Stress</th><th>Exercise</th></tr></thead>
+<tbody>${rows.map(({day,morning,afternoon,evening,symptoms,duration,medication,medicationEffect,dizzy,dizzyLevel,stress,exercise})=>{
+const sym=symptoms||[];
+return`<tr><td class="dc">${day}</td><td class="${pc(morning)}">${morning||'0'}</td><td class="${pc(afternoon)}">${afternoon||'0'}</td><td class="${pc(evening)}">${evening||'0'}</td><td>${sym.includes('Nausea/Vomiting')?'<span class="ck">✓</span>':''}</td><td>${sym.includes('Light sensitivity')?'<span class="ck">✓</span>':''}</td><td>${sym.includes('Sound sensitivity')?'<span class="ck">✓</span>':''}</td><td>${sym.includes('Pulsating pain')?'<span class="ck">✓</span>':''}</td><td>${sym.includes('Unilateral')?'<span class="ck">✓</span>':''}</td><td>${sym.includes('Aggravated by activity')?'<span class="ck">✓</span>':''}</td><td>${duration||''}</td><td style="font-size:9px">${medication!=='None'?medication:''}</td><td>${medicationEffect||''}</td><td>${dizzy?(dizzyLevel||'Yes'):''}</td><td>${stress||''}</td><td style="font-size:9px;text-align:left;padding-left:4px">${exercise||''}</td></tr>`;
+}).join('')}</tbody></table>
+<div class="ft">For personal use only. Not a substitute for medical care. © Dr. Liao Yen-Hui</div>
+</body></html>`;
+  // 用隱藏 iframe 列印，不開新視窗
+  const iframe=document.createElement('iframe');
+  iframe.style.cssText='position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;border:none';
+  document.body.appendChild(iframe);
+  iframe.contentDocument.open();
+  iframe.contentDocument.write(html);
+  iframe.contentDocument.close();
+  // 強制橫式：注入 landscape meta + style
+  const meta=iframe.contentDocument.createElement('meta');
+  meta.name='viewport';
+  meta.content='width=1200';
+  iframe.contentDocument.head.appendChild(meta);
+  iframe.contentWindow.onafterprint=()=>{
+    try{document.body.removeChild(iframe);}catch{}
+  };
+  setTimeout(()=>{
+    try{iframe.contentWindow.print();}catch(e){console.log(e);}
+  },800);
+}
+
+// ── 工具 ──
+function el(tag,props={}){
+  const e=document.createElement(tag);
+  Object.entries(props).forEach(([k,v])=>{
+    if(k==='className')e.className=v;
+    else if(k==='style'&&typeof v==='string')e.style.cssText=v;
+    else if(k in e)e[k]=v;
+    else e.setAttribute(k,v);
+  });
+  return e;
+}
+
+// 啟動
+render();
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});
+}
+</script>
+</body>
+</html>
